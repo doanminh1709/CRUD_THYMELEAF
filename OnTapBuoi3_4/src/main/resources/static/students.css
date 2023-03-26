@@ -1,0 +1,12 @@
+table{
+    border: 1px;
+    width: 100%;
+    /*margin: 0 auto;*/
+}
+div{
+    width: 50%;
+    margin: 0 auto;
+}
+p{
+    text-align: center;
+}

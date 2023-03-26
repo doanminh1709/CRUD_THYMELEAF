@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" th:href="@{/students.css}" />
+<!--<link rel="stylesheet" th:href="@{/css/students.css}" />-->
+<body>
+<div>
+    <h3>Tim kiếm sinh viên</h3>
+    <form th:action="@{/students/search}" method="get">
+        <label for="search">Search : </label>
+        <input id="search" type="text" name="keyword" value="" placeholder="Enter keyword...">
+        <input value="search" type="submit">
+    </form><br/>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Ten sv</th>
+        <th>Email</th>
+        <th colspan="2">Option</th>
+    </tr>
+    <tr th:each="item : ${sinhviens}">
+        <td th:text="*{item.getId()}"></td>
+        <td th:text="*{item.getName()}"></td>
+        <td th:text="*{item.getEmail()}"></td>
+        <td>
+            <a th:href="@{/sinhViens/edit/{id}(id=*{item.getId()})}">Sửa</a>
+        </td>
+        <td>
+            <a th:href="@{/students/delete/{id}(id=*{item.getId()})}">Xóa</a>
+        </td>
+    </tr>
+</table>
+<p><a th:href="@{/sinhViens/new}">Thêm sinh viên</a></p>
+</div>
+</body>
+</html>
